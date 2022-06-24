@@ -1,27 +1,21 @@
-import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import TextInput from "../Components/TextInput";
-import { Button } from "react-native-paper";
-import { theme } from "../Core/theme";
+import * as React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import TextInput from '../Components/TextInput';
+import {Button} from 'react-native-paper';
+import {theme} from '../Core/theme';
 
-function SignInScreen({ navigation }) {
-  const [userName, setUserName] = React.useState("");
-  const [password, setPassword] = React.useState("");
+function SignInScreen({navigation}) {
+  const [userName, setUserName] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   return (
-    <View
-      style={{ flex: 1, alignItems: "center", justifyContent: "flex-start" }}
-    >
-      <View style={{ marginTop: "35%" }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
+      <View style={{marginTop: '35%'}}>
         <Text style={Styles.title}>ATeam</Text>
         <Text style={Styles.title}>Software</Text>
       </View>
-      <View style={{ width: "90%", marginTop: "43%" }}>
-        <TextInput 
-          mode="outlined" 
-          style={Styles.input} l
-          label="User Name" 
-        />
+      <View style={{width: '90%', marginTop: '43%'}}>
+        <TextInput mode="outlined" style={Styles.input} l label="User Name" />
         <TextInput
           mode="outlined"
           label="Password"
@@ -34,8 +28,7 @@ function SignInScreen({ navigation }) {
         mode="contained"
         uppercase={false}
         labelStyle={Styles.labelStyle}
-        onPress={() => navigation.navigate("Home")}
-      >
+        onPress={() => navigation.navigate('Home')}>
         Sign In
       </Button>
     </View>
@@ -45,35 +38,35 @@ function SignInScreen({ navigation }) {
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     // justifyContent: 'center'
   },
   title: {
     fontSize: 32,
-    textAlign: "center",
-    fontWeight: "bold",
+    textAlign: 'center',
+    fontWeight: 'bold',
     marginVertical: 10,
   },
   input: {
-    width: "90%",
+    width: '90%',
     height: 48,
     marginTop: 8,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   buttonContainer: {
-    flexDirection: "column",
-    width: "75%",
-    alignSelf: "center",
+    flexDirection: 'column',
+    width: '75%',
+    alignSelf: 'center',
   },
   Button: {
     marginTop: 20,
     height: 46,
-    width: "60%",
+    width: '60%',
   },
   labelStyle: {
     fontSize: 18,
-    fontWeight: "bold",
-    justifyContent: "center",
+    fontWeight: 'bold',
+    justifyContent: 'center',
     marginTop: 12,
     color: theme.colors.white,
   },

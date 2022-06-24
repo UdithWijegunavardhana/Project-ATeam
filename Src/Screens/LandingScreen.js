@@ -48,7 +48,7 @@ const Styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "column",
     width: "75%",
-    marginTop: "90%",  
+    marginTop: "80%",  
   },
   Button: {
     marginTop: '10%',
