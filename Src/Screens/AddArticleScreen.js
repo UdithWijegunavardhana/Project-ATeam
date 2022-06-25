@@ -2,13 +2,22 @@ import * as React from "react";
 import { View, Text , StyleSheet } from "react-native";
 import { Button , TextInput } from 'react-native-paper';
 import {theme} from '../Core/theme';
+import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 // import Button from "../Components/Button";
 
 function AddArticleScreen({ navigation }) {
 
   return (
     <View style={Styles.container}>
-      
+      <Button
+        style={Styles.Button}
+        mode="contained"
+        uppercase={false}
+        labelStyle={Styles.labelStyle}
+        onPress={() => navigation.dispatch(DrawerActions.openDrawer())} 
+      >
+        Open Drawer
+      </Button>
     </View>
   );
 }

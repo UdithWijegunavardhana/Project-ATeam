@@ -26,7 +26,7 @@ const Articles = [
   }
 ];
 
-export default function ProfileScreen({ navigation }) {
+export default function ArticleScreen({ navigation }) {
   const [data, setData] = useState();
   //const [image, setImage] = useState()
   const [searchQuery, setSearchQuery] = useState("");
