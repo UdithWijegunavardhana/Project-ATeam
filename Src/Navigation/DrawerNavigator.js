@@ -1,28 +1,18 @@
 import * as React from 'react';
 import {Image} from 'react-native';
-import {NavigationContainer, DrawerActions} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Provider as PaperProvider} from 'react-native-paper';
-import {theme} from '../Core/theme';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {IconButton} from 'react-native-paper';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 
-import ArticleScreen from '../Screens/ArticleScreen';
-import AddArticleScreen from '../Screens/AddArticleScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
-import EventsScreen from '../Screens/EventsScreen';
 import ForumScreen from '../Screens/ForumScreen';
 import GraphsScreen from '../Screens/GraphsScreen';
 import PackagesScreen from '../Screens/PackagesScreen';
+import ArticleBottomTab from './ArticleBottomTabs';
+import EventBottomTab from './EventBottomTab';
 
-const homeTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 function ProfilePic() {
@@ -34,49 +24,17 @@ function ProfilePic() {
   );
 }
 
-function BottomTab({navigation}) {
-  return (
-    <homeTab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          let iconName;
-          if (route.name === 'Articles') {
-            iconName = focused ? 'ios-list' : 'ios-list-outline';
-          } else if (route.name === 'Add Article') {
-            iconName = focused ? 'add-circle' : 'add';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'ios-person' : 'ios-person-outline';
-          }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: theme.colors.primary,
-        tabBarInactiveTintColor: 'gray',
-        headerShown: false,
-      })}>
-      <homeTab.Screen name="Article" component={ArticleScreen} />
-      <homeTab.Screen name="Add Article" component={AddArticleScreen} />
-      <homeTab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-        }}
-      />
-    </homeTab.Navigator>
-  );
-}
-
 function DrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <DrawerItem
+      {/* <DrawerItem
         label="Close drawer"
         onPress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
-      />
+      /> */}
       <DrawerItem
-        label="Toggle drawer"
-        onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
+        label="Log Out"
+        // onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
       />
     </DrawerContentScrollView>
   );
@@ -88,15 +46,15 @@ export default function AppDrawer() {
       useLegacyImplementation
       drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen
-        name="Articles"
-        component={BottomTab}
+        name="Articles "
+        component={EventBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
       />
       <Drawer.Screen
-        name="Events"
-        component={EventsScreen}
+        name="Events "
+        component={ArticleBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
@@ -109,7 +67,7 @@ export default function AppDrawer() {
         })}
       />
       <Drawer.Screen
-        name="Graph"
+        name="Graphs"
         component={GraphsScreen}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
@@ -117,6 +75,20 @@ export default function AppDrawer() {
       />
       <Drawer.Screen
         name="Packages"
+        component={PackagesScreen}
+        options={({navigation}) => ({
+          headerRight: props => <ProfilePic {...props} />,
+        })}
+      />
+      <Drawer.Screen
+        name="Cripto Type"
+        component={PackagesScreen}
+        options={({navigation}) => ({
+          headerRight: props => <ProfilePic {...props} />,
+        })}
+      />
+      <Drawer.Screen
+        name="Profile"
         component={PackagesScreen}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
