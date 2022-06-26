@@ -3,6 +3,9 @@ import SignInScreen from '../Screens/SignInScreen';
 import SignUpScreen from '../Screens/SignUpScreen01';
 import SignUpScreenTwo from '../Screens/SignUpScreen02';
 import LandingScreen from '../Screens/LandingScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function AuthStack({navigation}) {
   return (

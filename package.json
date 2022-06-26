@@ -18,6 +18,8 @@
     "formik": "^2.2.9",
     "react": "17.0.2",
     "react-native": "0.68.2",
+    "react-native-autogrow-textinput": "^5.4.0",
+    "react-native-date-picker": "^4.2.2",
     "react-native-gesture-handler": "^2.5.0",
     "react-native-paper": "^4.12.1",
     "react-native-reanimated": "^2.8.0",
