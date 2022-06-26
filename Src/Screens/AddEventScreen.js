@@ -11,8 +11,7 @@ function AddEventsScreen({navigation}) {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   return (
-    <View
-      style={Styles.container}>
+    <View style={Styles.container}>
       <View style={{width: '98%', height: '70%'}}>
         <TextInput
           label="Event Title"
@@ -38,8 +37,7 @@ function AddEventsScreen({navigation}) {
           mode="outlined"
           uppercase={false}
           labelStyle={Styles.imageButtonlabelStyle}
-          onPress={() => Alert.alert('Select Image')}
-        >
+          onPress={() => Alert.alert('Select Image')}>
           Insert Image +
         </Button>
         {/* <Button title="Select Date" onPress={() => setOpen(true)} /> */}
@@ -71,7 +69,7 @@ function AddEventsScreen({navigation}) {
           uppercase={false}
           labelStyle={Styles.publishButtonlabelStyle}
           // onPress={() => setOpen(true)}
-          >
+        >
           Publish Event
         </Button>
       </View>
@@ -137,12 +135,12 @@ const Styles = StyleSheet.create({
     marginTop: '10%',
     marginBottom: '-15%',
     width: '70%',
-    alignSelf : 'center',
+    alignSelf: 'center',
     backgroundColor: theme.colors.primary,
   },
   publishButtonlabelStyle: {
     color: theme.colors.white,
-  }
+  },
 });
 
 export default AddEventsScreen;
