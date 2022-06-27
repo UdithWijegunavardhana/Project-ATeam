@@ -2,8 +2,12 @@ import * as React from 'react';
 import {View, Text, StyleSheet, Alert} from 'react-native';
 import {TextInput, Button} from 'react-native-paper';
 import {theme} from '../Core/theme';
+import { useNavigation } from '@react-navigation/native';
 
-const PackageCard = ({name, maxAlerts, duration, price}) => {
+const PackageCard = ({name, maxAlerts, duration, price }) => {
+
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
@@ -12,7 +16,7 @@ const PackageCard = ({name, maxAlerts, duration, price}) => {
           <Button
             mode="flat"
             style={styles.purchaseButton}
-            onPress={() => Alert.alert('Buy')}>
+            onPress={() => navigation.navigate('Purchase')}>
             Buy
           </Button>
         </View>

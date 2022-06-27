@@ -3,10 +3,16 @@ import {View, Text, StyleSheet} from 'react-native';
 import TextInput from '../Components/TextInput';
 import {Button} from 'react-native-paper';
 import {theme} from '../Core/theme';
+import {AuthContext} from '../Core/Utils';
 
 function SignInScreen({navigation}) {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const {signIn} = React.useContext(AuthContext);
+
+  function signInPressed() {
+    signIn();
+  }
 
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
@@ -28,7 +34,7 @@ function SignInScreen({navigation}) {
         mode="contained"
         uppercase={false}
         labelStyle={Styles.labelStyle}
-        onPress={() => navigation.navigate('Home')}>
+        onPress={signInPressed}>
         Sign In
       </Button>
     </View>

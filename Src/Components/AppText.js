@@ -1,15 +1,15 @@
-import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import {theme}  from '../Core/theme'
-import { Platform } from 'react-native'
+import React from 'react';
+import {View, StyleSheet, Text} from 'react-native';
+import {theme} from '../Core/theme';
+import {Platform} from 'react-native';
 
-const Apptext = ({ children, style, numberOfLines }) => {
+const Apptext = ({children, style, numberOfLines}) => {
   return (
     <Text style={[styles.Text, style]} numberOfLines={numberOfLines}>
       {children}
     </Text>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: Platform.OS == 'android' ? 'Roboto' : 'Avenir',
   },
-})
+});
 
-export default Apptext
+export default Apptext;

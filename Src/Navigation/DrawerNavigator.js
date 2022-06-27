@@ -6,6 +6,7 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import {AuthContext} from '../Core/Utils';
 
 import ForumScreen from '../Screens/ForumScreen';
 import GraphsScreen from '../Screens/GraphsScreen';
@@ -14,6 +15,7 @@ import ArticleBottomTab from './ArticleBottomTabs';
 import EventBottomTab from './EventBottomTab';
 import CryptoScreen from '../Screens/CryptoScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
+import PackagesStack from './PackageStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,6 +29,12 @@ function ProfilePic() {
 }
 
 function DrawerContent(props) {
+  const {signOut} = React.useContext(AuthContext);
+
+  function signOutPressed() {
+    signOut();
+  }
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
@@ -34,10 +42,7 @@ function DrawerContent(props) {
         label="Close drawer"
         onPress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
       /> */}
-      <DrawerItem
-        label="Log Out"
-        // onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
-      />
+      <DrawerItem label="Log Out" onPress={signOutPressed} />
     </DrawerContentScrollView>
   );
 }
@@ -77,7 +82,7 @@ export default function AppDrawer() {
       />
       <Drawer.Screen
         name="Packages"
-        component={PackagesScreen}
+        component={PackagesStack}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
