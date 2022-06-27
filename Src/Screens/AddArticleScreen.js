@@ -1,12 +1,16 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {TextInput , Button } from 'react-native-paper';
+import {TextInput, Button} from 'react-native-paper';
 import {theme} from '../Core/theme';
-import {NavigationContainer, DrawerActions} from '@react-navigation/native';
 import {AutoGrowingTextInput} from 'react-native-autogrow-textinput';
 
 function AddArticleScreen({navigation}) {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
+  function publishPressed() {
+    console.log(title, content);
+  }
   return (
     <View style={Styles.container}>
       <View style={{width: '98%', height: '70%', marginTop: 20}}>
@@ -15,20 +19,21 @@ function AddArticleScreen({navigation}) {
           underlineColor={theme.colors.primary}
           backgroundColor={theme.colors.white}
           // value={text}
-          // onChangeText={text => setText(text)}
+          onChangeText={text => setTitle(text)}
         />
         <AutoGrowingTextInput
           style={Styles.textInput}
           placeholder={'Your content goes here'}
+          onChangeText={text => setContent(text)}
         />
       </View>
-      <View style={{width:"100%", alignItems:"center"}}>
+      <View style={{width: '100%', alignItems: 'center'}}>
         <Button
           style={Styles.imageButton}
           mode="outlined"
           uppercase={false}
           labelStyle={Styles.labelStyle}
-          // onPress={() => navigation.navigate('Home')}
+          // onPress={publishPressed}
         >
           Insert Image +
         </Button>

@@ -1,22 +1,10 @@
 import * as React from 'react';
-import {Image} from 'react-native';
-import {NavigationContainer, DrawerActions} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Provider as PaperProvider} from 'react-native-paper';
 import {theme} from '../Core/theme';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {IconButton} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import ArticleScreen from '../Screens/ArticleScreen';
 import AddArticleScreen from '../Screens/AddArticleScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
-import EventsScreen from '../Screens/EventScreen';
-import ForumScreen from '../Screens/ForumScreen';
-import GraphsScreen from '../Screens/GraphsScreen';
-import PackagesScreen from '../Screens/PackagesScreen';
-import AddEventsScreen from '../Screens/AddEventScreen';
 
 const articleTab = createBottomTabNavigator();
 

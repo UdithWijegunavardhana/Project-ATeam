@@ -1,21 +1,20 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Card, Title, Paragraph , IconButton , Menu } from 'react-native-paper'
-import {theme}  from '../Core/theme'
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {Card, Title, Paragraph, IconButton, Menu} from 'react-native-paper';
+import {theme} from '../Core/theme';
 
-const ArticleCard = ({ image, articleName, author, date }) => {
-  
+const ArticleCard = ({image, articleName, author, date}) => {
   return (
     <Card style={styles.container} mode="elevated">
       <Card.Title
-          title={articleName}
-          style={{ height: 40 }}
-          right={(props) => (
-            <IconButton {...props} icon="menu" onPress={() => {}} />
-          )}
+        title={articleName}
+        style={{height: 40}}
+        right={props => (
+          <IconButton {...props} icon="dots-vertical" onPress={() => {}} />
+        )}
       />
       <Card.Cover
-        source={{ uri: "https://picsum.photos/700" }}
+        source={require('../Assets/article01.jpg')}
         style={styles.image}
       />
       <Card.Content>
@@ -27,13 +26,10 @@ const ArticleCard = ({ image, articleName, author, date }) => {
             {date}
           </Paragraph>
         </View>
-        
       </Card.Content>
-      {/* <Card.Actions style={styles.actionContainer}>
-      </Card.Actions> */}
     </Card>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -81,6 +77,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 10,
   },
-})
+});
 
-export default ArticleCard
+export default ArticleCard;

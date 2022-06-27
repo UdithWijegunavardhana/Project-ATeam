@@ -4,7 +4,7 @@ import ProfileEditScreen from '../Screens/ProfileEditScreen';
 import {Text} from 'react-native';
 import {Button} from 'react-native-paper';
 import PostedQuestionScreen from '../Screens/postedQuestionScreen';
-import questionEditScreen from '../Screens/questionEditScreen';
+import QuestionEditScreen from '../Screens/questionEditScreen';
 
 const Stack = createNativeStackNavigator();
 export default function AppStack({navigation}) {
@@ -19,7 +19,7 @@ export default function AppStack({navigation}) {
       />
       <Stack.Screen
         name="Edit Question"
-        component={questionEditScreen}
+        component={QuestionEditScreen}
         options={{
           headerShown: true,
         }}

@@ -1,19 +1,22 @@
 import * as React from 'react';
-import {Image, View,Text} from 'react-native';
+import {Image, View, Text} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import {AuthContext} from '../Core/Utils';
 
 import ForumScreen from '../Screens/ForumScreen';
 import GraphsScreen from '../Screens/GraphsScreen';
 import PackagesScreen from '../Screens/PackagesScreen';
 import ArticleBottomTab from './ArticleBottomTabs';
 import EventBottomTab from './EventBottomTab';
+import {IconButton} from 'react-native-paper';
+import CryptoScreen from '../Screens/CryptoScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
-import { IconButton } from 'react-native-paper';
+import PackagesStack from './PackageStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,6 +30,12 @@ function ProfilePic() {
 }
 
 function DrawerContent(props) {
+  const {signOut} = React.useContext(AuthContext);
+
+  function signOutPressed() {
+    signOut();
+  }
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
@@ -34,10 +43,7 @@ function DrawerContent(props) {
         label="Close drawer"
         onPress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
       /> */}
-      <DrawerItem
-        label="Log Out"
-        // onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
-      />
+      <DrawerItem label="Log Out" onPress={signOutPressed} />
     </DrawerContentScrollView>
   );
 }
@@ -49,14 +55,14 @@ export default function AppDrawer({navigation}) {
       drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen
         name="Articles "
-        component={EventBottomTab}
+        component={ArticleBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
       />
       <Drawer.Screen
         name="Events "
-        component={ArticleBottomTab}
+        component={EventBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
@@ -77,14 +83,14 @@ export default function AppDrawer({navigation}) {
       />
       <Drawer.Screen
         name="Packages"
-        component={PackagesScreen}
+        component={PackagesStack}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
       />
       <Drawer.Screen
         name="Cripto Type"
-        component={PackagesScreen}
+        component={CryptoScreen}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
@@ -93,17 +99,17 @@ export default function AppDrawer({navigation}) {
         name="Profile"
         component={ProfileScreen}
         options={({navigation}) => ({
-          headerRight: ()=>(
+          headerRight: () => (
             <IconButton
               icon="account-edit"
-              color='white'
-              onPress={()=> navigation.navigate('ProfileEdit')}
+              color="white"
+              onPress={() => navigation.navigate('ProfileEdit')}
             />
           ),
-          headerTitleStyle:{
-            color:'white'
+          headerTitleStyle: {
+            color: 'white',
           },
-          headerTransparent:true
+          headerTransparent: true,
         })}
       />
     </Drawer.Navigator>

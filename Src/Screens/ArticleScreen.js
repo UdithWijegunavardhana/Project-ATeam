@@ -1,54 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, SafeAreaView, FlatList } from "react-native";
-import { filter } from "lodash";
-import { Searchbar, IconButton, Menu, Divider } from "react-native-paper";
-import ArticleCard from "../Components/ArticleCard";
-import { theme } from "../Core/theme";
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
+import {filter} from 'lodash';
+import {Searchbar, IconButton, Menu, Divider} from 'react-native-paper';
+import ArticleCard from '../Components/ArticleCard';
+import {theme} from '../Core/theme';
 
 const Articles = [
   {
-    id: "A001",
-    articleName: "React Native",
-    author: "Anne Perera",
-    date: "31st January 2020",
+    id: 'A001',
+    articleName: 'React Native',
+    author: 'Anne Perera',
+    date: '31st January 2020',
   },
   {
-    id: "A002",
-    articleName: "Learn Mobile Development",
-    author: "John Doe",
-    date: "2nd March 2020",
+    id: 'A002',
+    articleName: 'Learn Mobile Development',
+    author: 'John Doe',
+    date: '2nd March 2020',
   },
   {
-    id: "A003",
-    articleName: "What is axios",
-    author: "John Doe",
-    date: "3rd dcember 2020",
-  }
+    id: 'A003',
+    articleName: 'What is axios',
+    author: 'John Doe',
+    date: '3rd dcember 2020',
+  },
 ];
 
-export default function ArticleScreen({ navigation }) {
+export default function ArticleScreen({navigation}) {
   const [data, setData] = useState();
-  //const [image, setImage] = useState()
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState('');
   const [visible, setVisible] = useState(false);
 
   const openMenu = () => setVisible(true);
   const closeMenu = () => setVisible(false);
 
-  const onChangeSearch = (searchQuery) => {
+  useEffect(() => {
+    if(!data){
+      setData(Articles);
+    }
+  })
+
+  const onChangeSearch = searchQuery => {
     if (searchQuery) {
       const formatedData = searchQuery.toLowerCase();
-      const filterData = filter(data, (Articles) => {
-        return contains(Articles, formatedData);
+      const filterData = filter(Articles, articles => {
+        return contains(articles, formatedData);
       });
       setData(filterData);
-      setSearchQuery(formatedData);
     } else {
-      setData(data);
+      setData(Articles);
     }
   };
 
-  const contains = ({ articleName, author }, searchQuery) => {
+  const contains = ({articleName, author}, searchQuery) => {
     if (
       articleName.toLowerCase().includes(searchQuery) ||
       author.toLowerCase().includes(searchQuery)
@@ -59,24 +63,25 @@ export default function ArticleScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={{ padding: 5, backgroundColor: theme.colors.white }}>
+    <SafeAreaView style={{padding: 5, backgroundColor: theme.colors.white}}>
       <View style={styles.searchBarContainer}>
         <Searchbar
           placeholder="Search"
-          onChangeText={(searchQuery) => onChangeSearch(searchQuery)}
+          onChangeText={searchQuery => onChangeSearch(searchQuery)}
           autoCapitalize="none"
           style={styles.searchBar}
         />
       </View>
       <FlatList
-        data={Articles}
-        contentContainerStyle={{ paddingBottom: 60 }}
+        data={data}
+        keyExtractor={(data) => data.id.toString()}
+        contentContainerStyle={{paddingBottom: 60}}
         style={{
           shadowColor: theme.colors.medium,
           shadowOpacity: 0.7,
-          shadowOffset: { height: 5, width: 0 },
+          shadowOffset: {height: 5, width: 0},
         }}
-        renderItem={({ item }) => (
+        renderItem={({item}) => (
           <ArticleCard
             articleName={item.articleName}
             author={item.author}
@@ -90,9 +95,9 @@ export default function ArticleScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   searchBarContainer: {
-    flexDirection: "row",
-    width: "100%",
-    alignItems: "center",
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
     padding: 0,
     margin: 0,
   },
