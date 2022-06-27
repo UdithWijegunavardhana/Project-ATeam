@@ -7,7 +7,7 @@ function ProfileScreen({ navigation }) {
 
   return (
     <View style={Styles.container}>
-      
+      <Text>Profile </Text>
     </View>
   );
 }

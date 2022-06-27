@@ -12,6 +12,8 @@ import GraphsScreen from '../Screens/GraphsScreen';
 import PackagesScreen from '../Screens/PackagesScreen';
 import ArticleBottomTab from './ArticleBottomTabs';
 import EventBottomTab from './EventBottomTab';
+import CryptoScreen from '../Screens/CryptoScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -47,14 +49,14 @@ export default function AppDrawer() {
       drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen
         name="Articles "
-        component={EventBottomTab}
+        component={ArticleBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
       />
       <Drawer.Screen
         name="Events "
-        component={ArticleBottomTab}
+        component={EventBottomTab}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
@@ -82,14 +84,14 @@ export default function AppDrawer() {
       />
       <Drawer.Screen
         name="Cripto Type"
-        component={PackagesScreen}
+        component={CryptoScreen}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
       />
       <Drawer.Screen
         name="Profile"
-        component={PackagesScreen}
+        component={ProfileScreen}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}

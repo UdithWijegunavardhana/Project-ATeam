@@ -14,5 +14,7 @@ export const theme = {
     dark: '#0c0c0c',
     white: '#fff',
     border: '#E8E8E8',
+    cardbackgroundDark: '#D5D8DC',
+    cardbackgroundLight: '#F4F6F6',
   },
 }
