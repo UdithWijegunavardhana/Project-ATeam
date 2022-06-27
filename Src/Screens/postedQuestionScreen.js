@@ -87,7 +87,9 @@ export default function PostedQuestionScreen({navigation}) {
                 right={() => (
                   <IconButton
                     icon="square-edit-outline"
-                    onPress={() => navigation.navigate('Edit Question')}
+                    onPress={() =>
+                      navigation.navigate('Edit Question', {date: item.date})
+                    }
                   />
                 )}
               />
