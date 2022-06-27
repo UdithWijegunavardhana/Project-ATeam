@@ -6,8 +6,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import {theme} from './Src/Core/theme';
 import {AuthContext} from './Src/Core/Utils';
 import AuthStack from './Src/Navigation/AuthNavigator';
-import AppDrawer from './Src/Navigation/DrawerNavigator';
-import AppStack from './Src/Navigation/AppStack';
+import AppDrawer from './Src/Navigation/AppNavigator';
 import SplashScreen from './Src/Screens/SplashScreen';
 import {AsyncStorage} from '@react-native-community/async-storage';
 
