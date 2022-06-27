@@ -10,7 +10,7 @@ import {
 } from 'react-native-paper';
 import {theme} from '../Core/theme';
 
-const EventCard = ({image, eventName, notes, date}) => {
+const EventCard = ({image, eventName, notes, date, navigation}) => {
   return (
     <Card style={styles.container} mode="elevated">
       <Card.Cover
@@ -18,7 +18,9 @@ const EventCard = ({image, eventName, notes, date}) => {
         style={styles.image}
       />
       <Card.Content>
-        <Paragraph style={{marginTop: 10,  fontWeight:"bold"}}>{eventName}</Paragraph>
+        <Paragraph style={{marginTop: 10, fontWeight: 'bold'}}>
+          {eventName}
+        </Paragraph>
         <Paragraph style={styles.description} numberOfLines={5}>
           {notes}
         </Paragraph>
@@ -30,7 +32,9 @@ const EventCard = ({image, eventName, notes, date}) => {
             <Button
               mode="contained"
               style={styles.button}
-              labelStyle={styles.buttonLable}>
+              labelStyle={styles.buttonLable}
+              // onPress={() => navigation.navigate('Purchase')}
+            >
               Get Tickets
             </Button>
           </Card.Actions>

@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {theme} from '../Core/theme';
 import {TextInput, Button} from 'react-native-paper';
+import PaymentsScreen from './PaymentScreen';
 
 function CryptoScreen({navigation}) {
   const [confirmMassage, setConfirmMassage] = React.useState('');

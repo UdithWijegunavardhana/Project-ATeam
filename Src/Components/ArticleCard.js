@@ -10,7 +10,7 @@ const ArticleCard = ({image, articleName, author, date}) => {
         title={articleName}
         style={{height: 40}}
         right={props => (
-          <IconButton {...props} icon="menu" onPress={() => {}} />
+          <IconButton {...props} icon="dots-vertical" onPress={() => {}} />
         )}
       />
       <Card.Cover
