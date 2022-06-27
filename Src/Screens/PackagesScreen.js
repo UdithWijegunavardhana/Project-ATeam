@@ -6,7 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 function PackagesScreen({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Packages Screen</Text>
+      <Text>Packages Screens</Text>
     </View>
   );
 }

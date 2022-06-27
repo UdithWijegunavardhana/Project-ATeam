@@ -1,48 +1,109 @@
-import * as React from "react";
-import { View, Text , StyleSheet } from "react-native";
-import { Button , TextInput } from 'react-native-paper';
-import {theme} from '../Core/theme';
+import * as React from 'react';
+import {View, Text, SafeAreaView, ImageBackground} from 'react-native';
+import {Avatar, Title} from 'react-native-paper';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-function ProfileScreen({ navigation }) {
-
+function ProfileScreen({navigation}) {
   return (
-    <View style={Styles.container}>
-      
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.userProf}>
+        <ImageBackground
+          source={require('../Assets/profBack.webp')}
+          resizeMode="cover"
+          style={{padding: 10, paddingBottom: 20}}
+          imageStyle={{
+            borderBottomRightRadius: 30,
+            borderBottomLeftRadius: 30,
+          }}>
+          <View style={styles.userTitle}>
+            <Avatar.Image
+              source={require('../Assets/profileImage.png')}
+              size={150}
+            />
+            <View>
+              <Title style={{color: 'white', marginTop: 10, fontSize: 25}}>
+                Pasindu Wanamali
+              </Title>
+            </View>
+          </View>
+        </ImageBackground>
+        <View style={styles.userInfo}>
+          <View style={styles.card}>
+            <View style={styles.row}>
+              <Ionicons name="mail" color="#777777" size={20} />
+              <Text style={{color: '#777777', marginLeft: 20}}>Email</Text>
+            </View>
+            <Text style={styles.cardInfo}>sampleemail123@gmail.com</Text>
+          </View>
+
+          <View style={styles.card}>
+            <View style={styles.row}>
+              <Ionicons
+                name="phone-portrait-sharp"
+                color="#777777"
+                size={20}
+                style={{marginRight: 4}}
+              />
+              <Text style={{color: '#777777', marginLeft: 20}}>
+                Mobile Number
+              </Text>
+            </View>
+            <Text style={styles.cardInfo}>+94 772 222 555</Text>
+          </View>
+
+          <View style={styles.card}>
+            <View style={styles.row}>
+              <Ionicons name="calendar-sharp" color="#777777" size={20} />
+              <Text style={{color: '#777777', marginLeft: 20}}>
+                Date Of Birth
+              </Text>
+            </View>
+            <Text style={styles.cardInfo}>29 Feb 2000</Text>
+          </View>
+
+          <View style={styles.card}>
+            <View style={styles.row}>
+              <Ionicons name="male-female-sharp" color="#777777" size={20} />
+              <Text style={{color: '#777777', marginLeft: 20}}>Gender</Text>
+            </View>
+            <Text style={styles.cardInfo}>Female</Text>
+          </View>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 }
 
-const Styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
-    alignItems: "center",
-    // justifyContent: 'center'
   },
-  title: {
-    fontSize: 32,
-    textAlign: "center",
-    fontWeight: "bold",
-    marginVertical: 10,
+  userProf: {
+    flex: 1,
+    backgroundColor: 'white',
   },
-  buttonContainer: {
-    flexDirection: "column",
-    width: "75%",
-    marginTop: "90%",  
+  userTitle: {
+    alignItems: 'center',
+    marginTop: 60,
   },
-  Button: {
-    marginTop: '10%',
-    height : 46,
-    borderRadius: 8,
-    backgroundColor: theme.colors.primary,
+  userInfo: {
+    marginLeft: 20,
+    marginRight: 20,
   },
-  labelStyle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    justifyContent: "center",
-    marginTop: 12,
-    color: theme.colors.white,
+  row: {
+    flexDirection: 'row',
   },
-  
-});
+  cardInfo: {
+    marginLeft: 40,
+    color: 'black',
+  },
+  card: {
+    marginTop: 30,
+    paddingBottom: 30,
+    borderBottomWidth: 2,
+    borderBottomColor: 'rgba(0,0,0,0.1)',
+    justifyContent: 'center',
+  },
+};
 
 export default ProfileScreen;

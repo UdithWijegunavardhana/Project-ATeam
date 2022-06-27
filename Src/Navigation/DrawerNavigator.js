@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image} from 'react-native';
+import {Image, View,Text} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {
   DrawerContentScrollView,
@@ -12,6 +12,8 @@ import GraphsScreen from '../Screens/GraphsScreen';
 import PackagesScreen from '../Screens/PackagesScreen';
 import ArticleBottomTab from './ArticleBottomTabs';
 import EventBottomTab from './EventBottomTab';
+import ProfileScreen from '../Screens/ProfileScreen';
+import { IconButton } from 'react-native-paper';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,7 +42,7 @@ function DrawerContent(props) {
   );
 }
 
-export default function AppDrawer() {
+export default function AppDrawer({navigation}) {
   return (
     <Drawer.Navigator
       useLegacyImplementation
@@ -89,9 +91,19 @@ export default function AppDrawer() {
       />
       <Drawer.Screen
         name="Profile"
-        component={PackagesScreen}
+        component={ProfileScreen}
         options={({navigation}) => ({
-          headerRight: props => <ProfilePic {...props} />,
+          headerRight: ()=>(
+            <IconButton
+              icon="account-edit"
+              color='white'
+              onPress={()=> navigation.navigate('ProfileEdit')}
+            />
+          ),
+          headerTitleStyle:{
+            color:'white'
+          },
+          headerTransparent:true
         })}
       />
     </Drawer.Navigator>

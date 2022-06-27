@@ -9,6 +9,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import AuthStack from './Src/Navigation/AuthNavigator';
 import AppDrawer from './Src/Navigation/DrawerNavigator';
+import AppStack from './Src/Navigation/AppStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,8 @@ export default function App() {
     <PaperProvider theme={theme}>
       <NavigationContainer>
         {/* <AuthStack /> */}
-        <AppDrawer />
+        {/* <AppDrawer /> */}
+        <AppStack />
       </NavigationContainer>
     </PaperProvider>
   );
