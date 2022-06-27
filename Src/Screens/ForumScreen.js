@@ -71,7 +71,9 @@ function ForumScreen({navigation}) {
             icon="arrow-right"
             style={{marginTop: -2, borderWidth: 1, color: 'blue'}}
             size={20}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('Posted Questions');
+            }}
           />
         </View>
         <View style={{marginBottom: 5}}>

@@ -7,16 +7,14 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {AuthContext} from '../Core/Utils';
-
-import ForumScreen from '../Screens/ForumScreen';
 import GraphsScreen from '../Screens/GraphsScreen';
-import PackagesScreen from '../Screens/PackagesScreen';
 import ArticleBottomTab from './ArticleBottomTabs';
 import EventBottomTab from './EventBottomTab';
-import {IconButton} from 'react-native-paper';
 import CryptoScreen from '../Screens/CryptoScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
 import PackagesStack from './PackageStack';
+import ProfileStack from './ProfileStack';
+import ForumStack from './ForumStack';
+import ChatStack from './ChatStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -68,8 +66,8 @@ export default function AppDrawer({navigation}) {
         })}
       />
       <Drawer.Screen
-        name="Forum"
-        component={ForumScreen}
+        name="Forum  "
+        component={ForumStack}
         options={({navigation}) => ({
           headerRight: props => <ProfilePic {...props} />,
         })}
@@ -96,20 +94,14 @@ export default function AppDrawer({navigation}) {
         })}
       />
       <Drawer.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="Profile  "
+        component={ProfileStack}
+      />
+      <Drawer.Screen
+        name="Chat  "
+        component={ChatStack}
         options={({navigation}) => ({
-          headerRight: () => (
-            <IconButton
-              icon="account-edit"
-              color="white"
-              onPress={() => navigation.navigate('ProfileEdit')}
-            />
-          ),
-          headerTitleStyle: {
-            color: 'white',
-          },
-          headerTransparent: true,
+          headerRight: props => <ProfilePic {...props} />,
         })}
       />
     </Drawer.Navigator>

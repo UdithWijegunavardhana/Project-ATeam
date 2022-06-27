@@ -37,6 +37,15 @@ function AddArticleScreen({navigation}) {
         >
           Insert Image +
         </Button>
+        <Button
+          style={Styles.publishButton}
+          mode="outlined"
+          uppercase={false}
+          labelStyle={Styles.publishButtonlabelStyle}
+          // onPress={() => setOpen(true)}
+        >
+          Publish Article
+        </Button>
       </View>
     </View>
   );
@@ -74,6 +83,16 @@ const Styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 24,
     color: theme.colors.medium,
+  },
+  publishButton: {
+    marginTop: '10%',
+    marginBottom: '-15%',
+    width: '70%',
+    alignSelf: 'center',
+    backgroundColor: theme.colors.primary,
+  },
+  publishButtonlabelStyle: {
+    color: theme.colors.white,
   },
   textInput: {
     paddingLeft: 10,

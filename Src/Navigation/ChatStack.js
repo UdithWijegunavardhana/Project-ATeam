@@ -1,22 +1,26 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Provider as PaperProvider} from 'react-native-paper';
-import MassagesScreen from './Src/Screens/MassagesScreen';
+import MassagesScreen from '../Screens/MassagesScreen';
+import ChatScreen from '../Screens/ChatScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function ChatStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Massages" component={MassagesScreen} />
+      <Stack.Screen
+        name="Massages"
+        component={MassagesScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="Chat"
         component={ChatScreen}
-        options={({route}) => ({
-          title: route.params.userName,
-          headerBackTitleVisible: false,
-        })}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );
