@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
-import PushNotification from 'react-native-push-notification';
+// import PushNotification from 'react-native-push-notification';
 import {
   Container,
   Card,
@@ -39,16 +39,16 @@ const Messages = [
 ];
 
 const MessagesScreen = ({navigation}) => {
-  const createChannels = () => {
-    PushNotification.createChannel({
-      channelId: 'test-channel01',
-      channelName: 'test channel 01',
-    });
-  };
+  // const createChannels = () => {
+  //   // PushNotification.createChannel({
+  //   //   channelId: 'test-channel01',
+  //   //   channelName: 'test channel 01',
+  //   // });
+  // };
 
-  useEffect(() => {
-    createChannels();
-  });
+  // useEffect(() => {
+  //   createChannels();
+  // });
 
   return (
     <Container>

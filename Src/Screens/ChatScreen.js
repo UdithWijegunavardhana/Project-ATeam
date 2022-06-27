@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState, useCallback, useEffect} from 'react';
 import {Bubble, GiftedChat, Send} from 'react-native-gifted-chat';
-import PushNotification from 'react-native-push-notification';
+// import PushNotification from 'react-native-push-notification';
 
 export default function ChatScreen() {
   const [messages, setMessages] = useState([]);
@@ -15,13 +15,13 @@ export default function ChatScreen() {
   //     )
   //   }
 
-  const handleNotification = messages => {
-    PushNotification.localNotification({
-      channelId: 'test-channel01',
-      title: 'New Message',
-      message: messages.text,
-    });
-  };
+  // const handleNotification = messages => {
+  //   PushNotification.localNotification({
+  //     channelId: 'test-channel01',
+  //     title: 'New Message',
+  //     message: messages.text,
+  //   });
+  // };
 
   useEffect(() => {
     // createChannels();
@@ -73,7 +73,7 @@ export default function ChatScreen() {
       messages={messages}
       onSend={messages => onSend(messages)}
       onPressAvatar={() => {
-        handleNotification(messages);
+        // handleNotification(messages);
       }}
       user={{
         _id: 1,
