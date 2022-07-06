@@ -82,6 +82,7 @@ function SignInScreen({navigation}) {
               <Text style={Styles.error}>{errors.password}</Text>
             )}
           </View>
+          <Button mode="text button" onPress={()=>navigation.navigate('Forgot Password')}>Forgot Password</Button>
           <Button
             style={[
               Styles.Button,
